@@ -1,6 +1,15 @@
+import flask
 from flask import Flask
-app = Flask(__name__)
+from api.info import info_blueprint
 
-@app.route('/test')
+app = Flask(__name__)
+app.register_blueprint(info_blueprint, url_prefix="/api/info")
+
+
+@app.route('/health')
 def test():
-    return '<h1>TEST</h1>'
+    return flask.Response(status=200).status
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
