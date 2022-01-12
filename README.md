@@ -1,1 +1,1 @@
-# cry_price_prediction
+# cry_price_prediction application
